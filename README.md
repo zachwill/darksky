@@ -29,7 +29,7 @@ Usage
 ```python
 import darksky as ds
 
-# Save your API key
+# Haven't saved your API key as an environment variable?
 ds.key('my_dark_sky_api_key')
 
 # You can also save your Mapquest API key
@@ -37,9 +37,6 @@ ds.mapquest('mapquest_api_key')
 
 # Look up interesting storms
 ds.interesting()
-
-# Didn't save your API key?
-ds.interesting('my_dark_sky_api_key')
 
 # Get a brief forecast for a latitude/longitude
 ds.brief(37.775002, -122.418297)
@@ -52,4 +49,7 @@ ds.forecast(37.775002, -122.418297)
 
 # Same goes for an address
 ds.forecast('155 9th St San Francisco, CA')
+
+# Fetch the latitude/longitude manually
+ds.location('155 9th St San Francisco, CA')
 ```

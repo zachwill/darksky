@@ -62,5 +62,8 @@ def interesting(api_key=None):
 
 def location(place):
     """Find the latitude and longitude for a location."""
+    map_key = mapquest()
+    if map_key == '':
+        raise Exception('No MAPQUEST_API_KEY found.')
     results = mapq.latlng(place)
     return (results['lat'], results['lng'])
