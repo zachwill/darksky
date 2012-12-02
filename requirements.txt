@@ -1,0 +1,3 @@
+mapq
+requests
+simplejson
