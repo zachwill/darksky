@@ -41,7 +41,21 @@ def brief(lat, lng=None, api_key=None):
         api_key = key()
     lat, lng = _check_lat_lng(lat, lng)
     url = "https://api.darkskyapp.com/v1/brief_forecast/%s/%s,%s" % (api_key, lat, lng)
-    return req.get(url).json
+    return req.get(url).json()
+
+
+def date(lat, lng, date=None, api_key=None):
+    """Get a forecast for a specific date."""
+    if not api_key:
+        api_key = key()
+    if not date:
+        # Then `lng` is actually the date.
+        lng, date = date, lng
+    if not isinstance(date, str):
+        date = date.isoformat()
+    lat, lng = _check_lat_lng(lat, lng)
+    url = "https://api.forecast.io/forecast/%s/%s,%s,%s" % (api_key, lat, lng, date)
+    return req.get(url).json()
 
 
 def forecast(lat, lng=None, api_key=None):
@@ -50,14 +64,14 @@ def forecast(lat, lng=None, api_key=None):
         api_key = key()
     lat, lng = _check_lat_lng(lat, lng)
     url = "https://api.darkskyapp.com/v1/forecast/%s/%s,%s" % (api_key, lat, lng)
-    return req.get(url).json
+    return req.get(url).json()
 
 
 def interesting(api_key=None):
     if not api_key:
         api_key = key()
     url = "https://api.darkskyapp.com/v1/interesting/%s" % api_key
-    return req.get(url).json
+    return req.get(url).json()
 
 
 def location(place):

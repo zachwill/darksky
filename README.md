@@ -53,3 +53,22 @@ ds.forecast('155 9th St San Francisco, CA')
 # Fetch the latitude/longitude manually
 ds.location('155 9th St San Francisco, CA')
 ```
+
+### Forecast
+
+Due to the updated [Dark Sky API](https://developer.forecast.io/docs/v2)
+changes, a new `date` method has been added.
+
+```python
+import darksky as ds
+import moment
+
+# Let's check the weather like it's 1999
+date = moment.date(1999, 12, 31).date
+
+# Using latitude/longitude
+ds.date(37.775002, -122.418297, date)
+
+# Using the MapQuest API
+ds.date('San Francisco, CA', date)
+```
