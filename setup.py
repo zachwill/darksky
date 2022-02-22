@@ -10,7 +10,7 @@ except ImportError:
 
 setup(
     name="darksky",
-    version="0.3",
+    version="0.4",
     url="http://github.com/zachwill/darksky",
     author="Zach Williams",
     author_email="hey@zachwill.com",
